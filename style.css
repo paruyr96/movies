@@ -1,0 +1,93 @@
+/* Container for the Header & Grid */
+#root {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Page Header Title (If you add an h1 above your grid) */
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: -0.025em;
+}
+
+/* Movie Cards Responsive Grid */
+.movie-grid {
+  display: grid;
+  /* Auto-fits as many columns as possible with min 220px width */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.75rem;
+}
+
+/* Movie Card Container */
+.card {
+  background-color: #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Hover Lift Effect */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+}
+
+/* Anchor Link Wrapper */
+.card a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3; /* Keeps standard movie poster proportions */
+  overflow: hidden;
+  background-color: #0f172a;
+}
+
+/* Movie Poster Image */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: scale 0.3s ease;
+}
+
+.card:hover img {
+  scale: 1.05; /* Subtle zoom on hover */
+}
+
+/* Movie Title Inside Card */
+.card h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  padding: 1rem;
+  margin: 0;
+  line-height: 1.3;
+  /* Truncate long titles with ellipsis (...) after 2 lines */
+  display: -webkit-box;
+  /* -webkit-line-clamp: 2; */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Mobile Responsiveness Adjustments */
+@media (max-width: 480px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .card h1 {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+}
